@@ -99,7 +99,9 @@ CONFIG_DBG_AX_CAM = n
 
 USE_TRUE_PHY = y
 CONFIG_I386_BUILD_VERIFY = n
-CONFIG_RTW_MBO = n
+CONFIG_RTW_MBO = y
+CONFIG_RTW_MULTI_AP = y
+
 # AMSDU in security network
 CONFIG_SEC_AMSDU_MODE = non-spp
 ########################## Android ###########################
@@ -567,6 +569,10 @@ ifeq ($(CONFIG_RTW_MBO), y)
 EXTRA_CFLAGS += -DCONFIG_RTW_MBO -DCONFIG_RTW_WNM -DCONFIG_RTW_BTM_ROAM
 #EXTRA_CFLAGS += -DCONFIG_RTW_80211K
 EXTRA_CFLAGS += -DCONFIG_RTW_80211R
+endif
+
+ifeq ($(CONFIG_RTW_MULTI_AP), y)
+EXTRA_CFLAGS += -DCONFIG_RTW_MULTI_AP
 endif
 
 ifeq ($(CONFIG_SEC_AMSDU_MODE), non-spp)
